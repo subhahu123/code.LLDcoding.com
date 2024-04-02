@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMirror Example</title>
+    <!-- Include CodeMirror Stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.css">
+    <!-- Include CodeMirror JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.js"></script>
+    <!-- Include CodeMirror JavaScript Mode -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/mode/htmlmixed/htmlmixed.min.js"></script>
+    <!-- Include CodeMirror JavaScript Theme -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/theme/material.min.css">
+    <style>
+        /* Style for CodeMirror and Result display */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        #editor-container {
+            display: flex;
+            height: 100%;
+        }
+        #code-editor {
+            flex: 1;
+            height: 100%;
+        }
+        #result-container {
+            flex: 1;
+            height: 100%;
+            overflow: auto;
+            padding: 10px;
+        }
+        #verify-button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="editor-container">
+        <!-- CodeMirror Editor -->
+        <textarea id="code-editor">&lt;!-- Write your HTML code here --&gt;</textarea>
+        <!-- Verify Button -->
+        <div id="result-container">
+            <button id="verify-button" onclick="verify()">Verify</button>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize CodeMirror Editor
+        var editor = CodeMirror.fromTextArea(document.getElementById("code-editor"), {
+            mode: "htmlmixed",
+            theme: "material",
+            lineNumbers: true,
+            lineWrapping: true,
+            autofocus: true
+        });
+
+        // Function to verify code
+        function verify() {
+            var code = editor.getValue();
+            // You can perform verification logic here
+            alert("Verifying code...");
+        }
+    </script>
+</body>
+</html>
